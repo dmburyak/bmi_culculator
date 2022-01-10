@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'icon_content.dart';
+import 'reusable_card.dart';
+
+const activeCardColor = Color(0xFF1D1E33);
+const bottomContainerColor = Color(0xFFEB1555);
+const bottomContainerHeight = 80.0;
 
 class InputPage extends StatefulWidget {
   @override
@@ -19,16 +27,24 @@ class _InputPageState extends State<InputPage> {
               child: Row(
                 children: [
                   Expanded(
-                    child: ReusableCard(color: Colors.blueAccent),
+                    child: ReusableCard(
+                      cardChild: IconContent(
+                        icon: FontAwesomeIcons.mars,
+                        label: 'MALE',
+                      ),
+                    ),
                   ),
                   Expanded(
-                    child: ReusableCard(),
+                    child: ReusableCard(cardChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: 'FEMALE',
+                    ),),
                   ),
                 ],
               ),
             ),
             Expanded(
-              child: ReusableCard(),
+              child: ReusableCard(cardChild: null,),
             ),
             Expanded(
               child: Row(
@@ -42,24 +58,12 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
+            Container(
+              width: double.infinity,
+              height: bottomContainerHeight,
+              color: bottomContainerColor,
+            )
           ],
         ));
-  }
-}
-
-class ReusableCard extends StatelessWidget {
-  const ReusableCard({this.color = const Color(0xFF1D1E33)});
-
- final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-    );
   }
 }
