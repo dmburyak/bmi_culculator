@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final TextStyle cardTextStyle = TextStyle(
+const TextStyle cardTextStyle = TextStyle(
   fontSize: 18.0,
   color: Color(0xFF8D8E98),
 );

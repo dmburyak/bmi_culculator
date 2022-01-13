@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'input_page.dart';
 
 class ReusableCard extends StatelessWidget {
+
   ReusableCard({this.color = activeCardColor, this.cardChild});
 
   final Color color;
