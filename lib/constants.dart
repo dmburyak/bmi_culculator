@@ -7,5 +7,11 @@ const kBottomContainerHeight = 80.0;
 
 const kCardTextStyle = TextStyle(
   fontSize: 18.0,
-  color: Color(0xFF8D8E98),
+  color: Color(0xFF8D8E98)
+);
+
+const kNumberTextStyle = TextStyle(
+  fontSize: 50.0,
+  fontWeight: FontWeight.w900,
+  color: Colors.white
 );
