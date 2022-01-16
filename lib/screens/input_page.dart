@@ -8,6 +8,8 @@ import 'package:bmi_culculator/components/icon_content.dart';
 import 'package:bmi_culculator/components/reusable_card.dart';
 import 'package:bmi_culculator/constants.dart';
 
+import '../calculator_brain.dart';
+
 enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
@@ -180,8 +182,16 @@ class _InputPageState extends State<InputPage> {
           BottomButton(
             buttonTitle: 'CULCULATE',
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ResultsPage()));
+              CalculatorBrain calc =
+                  CalculatorBrain(height: height, weight: weight);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ResultsPage(
+                            bmiResult: calc.calculateBMI(),
+                            resultText: calc.getResult(),
+                            interpretation: calc.getInterpretation(),
+                          )));
             },
           )
         ],
@@ -189,6 +199,3 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
-
-
-

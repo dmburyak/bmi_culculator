@@ -5,6 +5,15 @@ import 'package:bmi_culculator/components/bottom_button.dart';
 import 'package:bmi_culculator/components/reusable_card.dart';
 
 class ResultsPage extends StatelessWidget {
+  ResultsPage(
+      {required String this.resultText,
+      required String this.bmiResult,
+      required String this.interpretation});
+
+  final String resultText;
+  final String bmiResult;
+  final String interpretation;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,28 +35,29 @@ class ResultsPage extends StatelessWidget {
             ),
           ),
           Expanded(
-              flex: 5,
-              child: ReusableCard(
-                cardChild: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Normal',
-                      style: kResultTextStyle,
-                    ),
-                    Text(
-                      '18.3',
-                      style: kBMITextStyle,
-                    ),
-                    Text(
-                      'Your BMI result is quite low, you should eat more!',
-                      style: kBodyTextStyle,
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-              ),),
+            flex: 5,
+            child: ReusableCard(
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    resultText.toUpperCase(),
+                    style: kResultTextStyle,
+                  ),
+                  Text(
+                    bmiResult,
+                    style: kBMITextStyle,
+                  ),
+                  Text(
+                    interpretation,
+                    style: kBodyTextStyle,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+          ),
           BottomButton(
             buttonTitle: 'RE-CULCULATE',
             onTap: () {
